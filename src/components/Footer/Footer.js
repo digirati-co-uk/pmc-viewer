@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { withBemClass } from '@canvas-panel/core';
+import React from 'react';
 import bem from '@fesk/react-bem';
 import Pagination from '../Pagination/Pagination';
 import './Footer.scss';
