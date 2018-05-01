@@ -2,7 +2,6 @@
   "name": "pmc-viewer",
   "version": "1.0.0",
   "description": "Canvas panel driven viewing experience for PMC project",
-  "private": true,
   "scripts": {
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
