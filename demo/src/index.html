@@ -7,24 +7,44 @@
     <title>pmc-viewer</title>
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <meta name="description" content="">
+    <style>
+      html, body {
+        height: 100%;
+      }
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
   </head>
   <body>
 
-    <div
-      data-element="pmc-viewer-pop-out"
+
+  <h3>PMC Manifest examples</h3>
+  <div data-element="pmc-viewer-pop-out"
       data-manifest="./pmc-fixture.json"
     >
       Click to see full viewer
     </div>
 
-    <div
-      data-element="pmc-viewer"
-      data-manifest="./pmc-fixture.json"
-      style="width: 500px;height: 700px"
+  <div data-element="pmc-viewer"
+       data-manifest="./pmc-fixture.json"
+       style="width: 500px;height: 700px"
     >
     </div>
 
-    <!--<div id="app"></div>-->
+  <h3>Wellcome Manifest examples</h3>
+
+  <div data-element="pmc-viewer-pop-out"
+       data-manifest="https://wellcomelibrary.org/iiif/b18035723/manifest">
+      open 1
+  </div>
+  <div data-css-prefix="testing"
+       data-element="pmc-viewer-pop-out"
+       data-manifest="https://wellcomelibrary.org/iiif/b21213483/manifest">
+      open 2
+  </div>
+
   </body>
 </html>

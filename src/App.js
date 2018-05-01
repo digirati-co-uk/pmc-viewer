@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import { createStore } from '@canvas-panel/redux';
-import {
-  reducer as searchReducer,
-  saga as searchSaga,
-} from '@canvas-panel/search';
-import { Provider } from 'react-redux';
 import { manifestRequest } from '@canvas-panel/redux/es/spaces/manifest';
 import Layout from './components/Layout/Layout';
 import Viewer from './components/Viewer/Viewer';
-
-const store = createStore(
-  {
-    search: searchReducer,
-  },
-  [],
-  [searchSaga]
-);
+import { connect } from 'react-redux';
+import Theme from './components/Theme/Theme';
 
 class App extends Component {
   viewport = null;
@@ -28,8 +16,8 @@ class App extends Component {
     this.setState({ viewportAvailable: true });
   };
 
-  componentWillMount() {
-    store.dispatch(
+  componentDidMount() {
+    this.props.dispatch(
       manifestRequest(this.props.manifest, 'en-GB', {
         startCanvas:
           this.props.startCanvas === 0 ? 0 : this.props.startCanvas || 2,
@@ -41,6 +29,20 @@ class App extends Component {
     window.location = anno['@id'];
   };
 
+  configureTheme() {
+    const { cssPrefix, cssClassMap } = this.props;
+
+    const themeProps = {};
+    if (cssPrefix) {
+      themeProps.prefix = cssPrefix;
+    }
+    if (cssClassMap) {
+      themeProps.cssClassMap = JSON.parse(cssClassMap);
+    }
+
+    return themeProps;
+  }
+
   render() {
     const {
       onClose,
@@ -48,7 +50,7 @@ class App extends Component {
     } = this.props;
     const { viewportAvailable } = this.state;
     return (
-      <Provider store={store}>
+      <Theme {...this.configureTheme()}>
         <Layout style={{ background: '#2D3135' }}>
           <Layout.Header>
             <Header
@@ -66,9 +68,9 @@ class App extends Component {
             <Footer />
           </Layout.Footer>
         </Layout>
-      </Provider>
+      </Theme>
     );
   }
 }
 
-export default App;
+export default connect()(App);
