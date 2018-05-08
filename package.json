@@ -8,7 +8,7 @@
     "demo"
   ],
   "scripts": {
-    "build": "npm-run-all build-templates build-assets",
+    "build": "NODE_ENV=development npm-run-all build-templates build-assets",
     "build-assets": "MICRO_SITE=true nwb build-web-app src dist/assets --color",
     "build-templates": "fesk-metalsmith micro-site --color",
     "start": "run-p watch serve",
