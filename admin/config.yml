@@ -7,7 +7,7 @@ public_folder: "/images/uploads"
 collections:
 - name: "about"
   label: "About pages"
-  folder: "src/00-about"
+  folder: "src/views/00-about"
   create: true
   slug: "{{slug}}"
   fields:
@@ -23,7 +23,7 @@ collections:
     - {label: "Body", name: "body", widget: "markdown"}
 - name: "examples"
   label: "Example pages"
-  folder: "src/01-examples"
+  folder: "src/views/01-examples"
   create: true
   slug: "{{slug}}"
   fields:
