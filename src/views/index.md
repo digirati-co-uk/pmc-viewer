@@ -1,3 +1,8 @@
+---
+name: index
+title: index
+---
+
 # Testing
 
  <h3>PMC Manifest examples</h3>
