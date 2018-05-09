@@ -4,7 +4,7 @@ title: Wunder der Vererbung
 hero:
   headline: Wunder der Vererbung
   image: /images/uploads/dna_istock-deosum_20161205.jpg
-  text: <small>© iStock-DeoSum</small>
+  text: © iStock-DeoSum
 ---
 ## Wunder der Vererbung example
 
