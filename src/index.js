@@ -6,6 +6,11 @@ import PmcViewerPopOutComponent from './components/PmcViewerComponent/PmcViewerC
 import createStore from './createStore';
 import { Provider } from 'react-redux';
 
+if (process.env.NODE_ENV !== 'production') {
+  require('@fesk/plugin-micro-site/lib/js');
+  require('./scss/styles.scss');
+}
+
 const storeCache = {};
 function getStoreFromCache(manifestId) {
   if (!storeCache[manifestId]) {
@@ -16,10 +21,7 @@ function getStoreFromCache(manifestId) {
 
 function isValidElement($el) {
   const manifest = $el.getAttribute('data-manifest');
-  if (!manifest.trim()) {
-    return false;
-  }
-  return true;
+  return !!manifest.trim();
 }
 
 function createPmcViewerComponent($viewer) {

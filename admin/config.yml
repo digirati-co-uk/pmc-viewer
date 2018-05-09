@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: master
+publish_mode: editorial_workflow
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+collections:
+- name: "about"
+  label: "About pages"
+  folder: "src/00-about"
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - {label: "Name of post", name: "name", widget: "string"}
+    - {label: "Short name", name: "title", widget: "string"}
+    - label: "Hero image"
+      name: "hero"
+      widget: "object"
+      fields:
+        - {label: "Headline", name: "headline", widget: "string"}
+        - {label: "Featured Image", name: "image", widget: "image"}
+        - {label: "Body", name: "text", widget: "markdown"}
+    - {label: "Body", name: "body", widget: "markdown"}
+- name: "examples"
+  label: "Example pages"
+  folder: "src/01-examples"
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - {label: "Name of post", name: "name", widget: "string"}
+    - {label: "Short name", name: "title", widget: "string"}
+    - label: "Hero image"
+      name: "hero"
+      widget: "object"
+      fields:
+        - {label: "Headline", name: "headline", widget: "string"}
+        - {label: "Featured Image", name: "image", widget: "image"}
+        - {label: "Body", name: "text", widget: "markdown"}
+    - {label: "Body", name: "body", widget: "markdown"}
