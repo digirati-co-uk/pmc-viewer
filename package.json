@@ -8,9 +8,11 @@
     "demo"
   ],
   "scripts": {
-    "build": "NODE_ENV=development npm-run-all build-templates build-assets",
+    "build": "NODE_ENV=development npm-run-all build-templates build-assets build-admin",
     "build-assets": "MICRO_SITE=true nwb build-web-app src dist/assets --color",
     "build-templates": "fesk-metalsmith micro-site --color",
+    "build-admin": "cp -r ./admin ./dist/admin",
+    "build-public": "cp -r ./public ./dist/public",
     "start": "run-p watch serve",
     "serve": "fesk-live-server",
     "watch": "NODE_ENV=development npm-watch",
@@ -73,6 +75,17 @@
     ]
   },
   "watch": {
+    "build-public": {
+      "patterns": [
+        "public"
+      ]
+    },
+    "build-admin": {
+      "patterns": [
+        "admin"
+      ],
+      "extensions": "yml,html"
+    },
     "build-templates": {
       "patterns": [
         "src"
