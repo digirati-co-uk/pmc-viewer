@@ -25,9 +25,9 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "@canvas-panel/core": "^0.0.8",
-    "@canvas-panel/redux": "^0.0.8",
-    "@canvas-panel/search": "^0.0.8",
+    "@canvas-panel/core": "^0.0.9",
+    "@canvas-panel/redux": "^0.0.9",
+    "@canvas-panel/search": "^0.0.9",
     "@fesk/bem-js": "^1.0.0",
     "@fesk/react-bem": "^0.0.1",
     "immutability-helper": "^2.6.4",
