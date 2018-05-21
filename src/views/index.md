@@ -1,39 +1,12 @@
 ---
 name: index
 title: index
+hero:
+  headline: PMC Viewer
+  image: /images/uploads/pmc-psr-2015.jpg
 ---
-
-# Testing
-
- <h3>PMC Manifest examples</h3>
-  <div data-element="pmc-viewer-pop-out"
-      data-manifest="https://mattmcgrattan.github.io/pmc-fixture.json"
-    >
-      Click to see full viewer
-    </div>
-
   <div data-element="pmc-viewer"
        data-manifest="https://mattmcgrattan.github.io/pmc-fixture.json"
-       style="width: 500px;height: 700px"
-    >
-    </div>
+       style="width: 100%;height: 700px"></div>
 
-  <h3>Wellcome Manifest examples</h3>
-
-  <div data-element="pmc-viewer-pop-out"
-       data-manifest="https://wellcomelibrary.org/iiif/b18035723/manifest">
-    Wunder der Vererbung
-  </div>
-  <div data-css-class-map='{"pmc-title": "custom-pmc-title"}'
-       data-element="pmc-viewer-pop-out"
-       data-manifest="https://wellcomelibrary.org/iiif/b21213483/manifest">
-    The human body (custom title style)
-  </div>
-  <style>
-    .custom-pmc-title {
-      color: aquamarine;
-      text-align: center;
-      font-size: 16px;
-      line-height: 80px;
-    }
-  </style>
+Build using [Canvas Panel](https://github.com/digirati-co-uk/canvas-panel) this viewer was made for the [Paul Mellon Centre](http://www.paul-mellon-centre.ac.uk).
