@@ -112,6 +112,9 @@ class Viewer extends Component {
                     ratio={0.1}
                     growthStyle="fixed"
                     bemModifiers={() => ({ search: true })}
+                    onClickAnnotation={annotation =>
+                      onClickAnnotation(annotation.__jsonld.resource)
+                    }
                   />
                 ) : (
                   <AnnotationRepresentation

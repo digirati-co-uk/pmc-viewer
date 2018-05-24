@@ -1,6 +1,6 @@
 {
   "name": "pmc-viewer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Canvas panel driven viewing experience for PMC project",
   "files": [
     "lib",
