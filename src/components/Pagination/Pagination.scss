@@ -13,11 +13,12 @@
     height: 50px;
     width: 50px;
     transition: background 0.5s;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
 
     &:focus {
-      outline: 2px solid #fff;
+      color: rgba(255, 255, 255, 0.9);
+      outline: 2px solid rgba(255, 255, 255, 0.9);
       outline-offset: -4px;
     }
     &:active {

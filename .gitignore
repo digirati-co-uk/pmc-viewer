@@ -4,3 +4,4 @@ dist
 /*.log*
 /lib
 /umd
+!dist/.gitkeep

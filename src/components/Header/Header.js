@@ -7,16 +7,23 @@ import Controls from '../Controls/Controls';
 import Pager from '../Pager/Pager';
 import IIIFLink from '../IIIFLink/IIIFLink';
 
+let leftPad = n => (n <= 999 ? ('00' + n).slice(-3) : n);
+
 class Header extends Component {
+  getCurrentPage() {
+    const { currentCanvas, totalCanvases } = this.props;
+    return `Page ${leftPad(currentCanvas + 1)} of ${leftPad(totalCanvases)}`;
+  }
+
   render() {
-    const { viewport, onClose } = this.props;
+    const { viewport, onClose, id } = this.props;
     return (
       <div style={{ position: 'relative' }}>
         <Title>{this.props.label}</Title>
         {onClose ? <Close onClose={onClose} /> : null}
         <ControlBar>
           <ControlBar.Left>
-            <Pager>{this.props.canvasLabel}</Pager>
+            <Pager>{this.getCurrentPage()}</Pager>
           </ControlBar.Left>
           <ControlBar.Right>
             {viewport ? (
@@ -25,7 +32,7 @@ class Header extends Component {
                 onZoomOut={() => viewport.zoomOut()}
               />
             ) : null}
-            <IIIFLink />
+            {id ? <IIIFLink manifest={id} /> : null}
           </ControlBar.Right>
         </ControlBar>
       </div>
@@ -35,10 +42,16 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
+    id: state.manifest.jsonLd ? state.manifest.jsonLd['@id'] : null,
     label: state.manifest.jsonLd ? state.manifest.jsonLd.label : '',
-    canvasLabel: state.canvas
-      ? state.canvas.jsonLd ? state.canvas.jsonLd.label : ''
-      : '',
+    // canvasLabel: state.canvas
+    //   ? state.canvas.jsonLd ? state.canvas.jsonLd.label : ''
+    //   : '',
+    canvasLabel: state.canvas ? state.canvas.getLabel() : '',
+    currentCanvas: state.manifest ? state.manifest.currentCanvas : null,
+    totalCanvases: state.manifest.jsonLd
+      ? state.manifest.jsonLd.sequences[0].canvases.length
+      : null,
   };
 }
 

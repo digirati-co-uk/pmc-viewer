@@ -51,7 +51,7 @@ class App extends Component {
     const { viewportAvailable } = this.state;
     return (
       <Theme {...this.configureTheme()}>
-        <Layout style={{ background: '#2D3135' }}>
+        <Layout>
           <Layout.Header>
             <Header
               onClose={onClose}
