@@ -11,12 +11,22 @@ class ControlBar extends Component {
 
 const ControlBarStyled = withBemClass('control-bar')(ControlBar);
 
-ControlBarStyled.Left = withBemClass('control-bar')(({ children, bem }) => (
-  <div className={bem.element('left')}>{children}</div>
-));
+ControlBarStyled.Left = withBemClass('control-bar')(
+  class ControlBarLeft extends Component {
+    render() {
+      const { children, bem } = this.props;
+      return <div className={bem.element('left')}>{children}</div>;
+    }
+  }
+);
 
-ControlBarStyled.Right = withBemClass('control-bar')(({ children, bem }) => (
-  <div className={bem.element('right')}>{children}</div>
-));
+ControlBarStyled.Right = withBemClass('control-bar')(
+  class ControlBarRight extends Component {
+    render() {
+      const { children, bem } = this.props;
+      return <div className={bem.element('right')}>{children}</div>;
+    }
+  }
+);
 
 export default ControlBarStyled;

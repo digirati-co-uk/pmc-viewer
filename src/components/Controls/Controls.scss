@@ -1,6 +1,6 @@
 .viewer-controls {
   z-index: 19;
-  margin: 0 10px;
+  margin: 4px 10px;
   opacity: 0;
   pointer-events: none;
 
@@ -19,7 +19,7 @@
     margin-left: 4px;
     border-radius: 0;
     transition: background 0.5s;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
 
     @media (max-width: 40em) {
@@ -28,7 +28,8 @@
     }
 
     &:focus {
-      outline: 2px solid #fff;
+      color: rgba(255, 255, 255, 0.9);
+      outline: 2px solid rgba(255, 255, 255, 0.9);
       outline-offset: -3px;
     }
     &:active {
