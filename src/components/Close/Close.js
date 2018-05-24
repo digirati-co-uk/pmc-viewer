@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
+import { withBemClass } from '@canvas-panel/core';
+import './Close.scss';
 
 class Close extends Component {
   render() {
-    const { onClose } = this.props;
+    const { onClose, bem } = this.props;
     return (
-      <div
-        onClick={onClose}
-        style={{
-          position: 'absolute',
-          top: 10,
-          right: 20,
-          fontSize: '2em',
-          lineHeight: '1.6em',
-          color: '#fff',
-          cursor: 'pointer',
-        }}
-      >
+      <div className={bem} onClick={onClose}>
         &times;
       </div>
     );
   }
 }
 
-export default Close;
+export default withBemClass('close-icon')(Close);
