@@ -21,10 +21,6 @@
       transform: translateY(100px);
       transition: transform 0.3s;
     }
-    .layout__header {
-      transform: translateY(-100px);
-      transition: transform 0.3s;
-    }
     &--isOpen {
       pointer-events: visible;
       opacity: 1;
@@ -35,6 +31,20 @@
         transform: translateY(0);
       }
       .layout__header {
+        pointer-events: visible;
+      }
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    //CSS
+    .layout__header {
+      transform: translateY(-100px);
+      transition: transform 0.3s;
+    }
+    &--isOpen {
+      .layout__header {
+        pointer-events: visible;
         transform: translateY(0);
       }
     }

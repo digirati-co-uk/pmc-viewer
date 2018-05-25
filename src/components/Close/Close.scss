@@ -6,4 +6,7 @@
   line-height: 18px;
   color: #fff;
   cursor: pointer;
+  @media (min-width: 320px) and (max-width: 480px) {
+    top: 16px;
+  }
 }
