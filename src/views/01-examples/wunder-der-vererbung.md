@@ -6,6 +6,7 @@ hero:
   image: /images/uploads/dna_istock-deosum_20161205.jpg
   text: © iStock-DeoSum
 ---
+
 ## Wunder der Vererbung example
 
 > Wellcome Library
@@ -13,5 +14,5 @@ hero:
 
 <div data-element="pmc-viewer"
      data-manifest="https://wellcomelibrary.org/iiif/b18035723/manifest"
-     style="width: 600px;height: 700px"
+     style="width: 600px;height: 700px; max-width: 100%"
 \></div>

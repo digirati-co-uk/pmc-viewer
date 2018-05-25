@@ -5,7 +5,7 @@ import './Footer.scss';
 import { RangeSlider, SearchBox } from '@canvas-panel/search';
 
 export default bem(
-  'footer',
+  'pmc-footer',
   footer => ({
     Footer: footer,
     FooterSearch: footer.element('search'),

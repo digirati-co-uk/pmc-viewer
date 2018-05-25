@@ -1,5 +1,4 @@
 import { withBemClass } from '@canvas-panel/core';
-
 import React, { Component } from 'react';
 import './Title.scss';
 
