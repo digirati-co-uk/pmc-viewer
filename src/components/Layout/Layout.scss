@@ -8,16 +8,19 @@
   &__header {
     max-width: 1280px;
     width: 100%;
+    flex-basis: auto;
   }
 
   &__main {
     flex: 1;
     max-width: 1280px;
     width: 100%;
+    flex-basis: auto;
   }
 
   &__footer {
     max-width: 1280px;
     width: 100%;
+    flex-basis: auto;
   }
 }
