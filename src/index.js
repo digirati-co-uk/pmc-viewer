@@ -12,11 +12,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const storeCache = {};
-function getStoreFromCache(manifestId) {
-  if (!storeCache[manifestId]) {
-    storeCache[manifestId] = createStore();
+function getStoreFromCache(manifestId, initialSearch) {
+  if (!storeCache[manifestId + initialSearch]) {
+    storeCache[manifestId + initialSearch] = createStore({ initialSearch });
   }
-  return storeCache[manifestId];
+  return storeCache[manifestId + initialSearch];
 }
 
 function isValidElement($el) {
@@ -30,7 +30,10 @@ function createPmcViewerComponent($viewer) {
   }
   const initialProps = { ...$viewer.dataset };
   const innerText = $viewer.innerText;
-  const store = getStoreFromCache(initialProps.manifest);
+  const store = getStoreFromCache(
+    initialProps.manifest,
+    initialProps.initialSearch || null
+  );
 
   render(
     <ObservableElement
@@ -74,11 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return null;
     }
     const manifest = $viewer.getAttribute('data-manifest');
-    const store = getStoreFromCache(manifest);
+    const initialSearch = $viewer.getAttribute('data-initial-search') || null;
+    const store = getStoreFromCache(manifest, initialSearch);
 
     render(
       <Provider store={store}>
-        <App manifest={$viewer.getAttribute('data-manifest')} />
+        <App {...$viewer.dataset} />
       </Provider>,
       $viewer
     );
