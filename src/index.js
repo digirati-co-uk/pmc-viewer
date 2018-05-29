@@ -31,6 +31,9 @@ function createPmcViewerComponent($viewer) {
   const initialProps = { ...$viewer.dataset };
   const innerText = $viewer.innerText;
   const store = getStoreFromCache(initialProps.manifest);
+  const registerOpener = open => {
+    $viewer.open = open;
+  };
 
   render(
     <ObservableElement
@@ -41,7 +44,9 @@ function createPmcViewerComponent($viewer) {
           <Provider store={store}>
             <PmcViewerPopOutComponent
               {...props}
+              store={store}
               text={innerText}
+              registerOpener={registerOpener}
               getRef={osd => ($viewer.osd = osd)}
             />
           </Provider>
@@ -75,11 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const manifest = $viewer.getAttribute('data-manifest');
     const store = getStoreFromCache(manifest);
+    const initialProps = { ...$viewer.dataset };
 
     render(
-      <Provider store={store}>
-        <App manifest={$viewer.getAttribute('data-manifest')} />
-      </Provider>,
+      <ObservableElement
+        observer={htmlElementObserver($viewer)}
+        initialProps={initialProps}
+        render={props =>
+          props.manifest ? (
+            <Provider store={store}>
+              <App store={store} {...props} />
+            </Provider>
+          ) : null
+        }
+      />,
       $viewer
     );
   });
