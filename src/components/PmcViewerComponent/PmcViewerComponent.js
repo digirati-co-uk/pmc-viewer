@@ -12,6 +12,12 @@ class PmcViewerPopOutComponent extends Component {
 
   close = () => this.setState({ isOpen: false });
 
+  componentWillMount() {
+    if (this.props.registerOpener) {
+      this.props.registerOpener(this.open);
+    }
+  }
+
   render() {
     const { isOpen } = this.state;
     const { text, bem, ...props } = this.props;

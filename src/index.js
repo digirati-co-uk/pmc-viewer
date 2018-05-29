@@ -31,6 +31,9 @@ function createPmcViewerComponent($viewer) {
   const initialProps = { ...$viewer.dataset };
   const innerText = $viewer.innerText;
   const store = getStoreFromCache(initialProps.manifest);
+  const registerOpener = open => {
+    $viewer.open = open;
+  };
 
   render(
     <ObservableElement
@@ -43,6 +46,7 @@ function createPmcViewerComponent($viewer) {
               {...props}
               store={store}
               text={innerText}
+              registerOpener={registerOpener}
               getRef={osd => ($viewer.osd = osd)}
             />
           </Provider>
