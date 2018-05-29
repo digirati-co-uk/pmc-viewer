@@ -6,10 +6,14 @@ import Layout from './components/Layout/Layout';
 import Viewer from './components/Viewer/Viewer';
 import { connect } from 'react-redux';
 import Theme from './components/Theme/Theme';
+import { search } from '@canvas-panel/search';
+import { waitAndSearch } from './createStore';
 
 class App extends Component {
   viewport = null;
   state = { viewportAvailable: false };
+
+  static defaultProps = { searchQuery: null };
 
   setViewport = viewport => {
     this.viewport = viewport;
@@ -23,6 +27,18 @@ class App extends Component {
           this.props.startCanvas === 0 ? 0 : this.props.startCanvas || 2,
       })
     );
+  }
+
+  componentWillMount() {
+    if (this.props.initialSearch) {
+      waitAndSearch(this.props.store, this.props.initialSearch);
+    }
+  }
+
+  componentWillReceiveProps(newProps, newContext) {
+    if (newProps.searchQuery !== this.props.searchQuery) {
+      waitAndSearch(this.props.store, newProps.searchQuery);
+    }
   }
 
   handleClickAnnotation = anno => {

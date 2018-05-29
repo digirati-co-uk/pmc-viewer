@@ -5,9 +5,13 @@ import {
 } from '@canvas-panel/search';
 import { search } from '@canvas-panel/search';
 
-function addInitialSearch(store, q) {
+export function waitAndSearch(store, q) {
   if (!q) {
     return;
+  }
+  const state = store.getState();
+  if (state && state.search && state.search.service) {
+    store.dispatch(search.searchRequest({ q }));
   }
   const unsubscribe = store.subscribe(() => {
     if (store.getState().search.service) {
@@ -17,16 +21,12 @@ function addInitialSearch(store, q) {
   });
 }
 
-export default function createCustomStore({ initialSearch } = {}) {
-  const store = createStore(
+export default function createCustomStore() {
+  return createStore(
     {
       search: searchReducer,
     },
     [],
     [searchSaga]
   );
-
-  addInitialSearch(store, initialSearch);
-
-  return store;
 }
