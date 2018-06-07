@@ -21,13 +21,12 @@ module.exports = {
         data: sassDefine(require('./sassConfig')),
       },
       babel: {
-        // include: [require.resolve('@fesk/plugin-micro-site/lib/js')],
         exclude: {
           test: path.resolve(__dirname, 'node_modules'),
           exclude: [
             path.resolve(__dirname, 'node_modules/@fesk'),
             path.resolve(__dirname, 'node_modules/foundation-sites'),
-          ], // or your module - also can be an array (read doc)
+          ],
         },
       },
     },
