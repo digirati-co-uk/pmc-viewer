@@ -1,6 +1,7 @@
 {% extends '@fesk/plugin-micro-site/lib/layouts/micrositeLayout.twig' %}
 
 {% block head %}
+  <script src="//cdn.jsdelivr.net/npm/mutationobserver-shim/dist/mutationobserver.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
@@ -19,9 +20,9 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
+        window.netlifyIdentity.on("init", function(user) {
           if (!user) {
-            window.netlifyIdentity.on("login", () => {
+            window.netlifyIdentity.on("login", function() {
               document.location.href = "/admin/";
             });
           }

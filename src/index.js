@@ -1,3 +1,5 @@
+import '@canvas-panel/core/es/polyfill';
+import 'core-js/modules/es6.array.from';
 import React from 'react';
 import { render } from 'react-dom';
 import { htmlElementObserver, ObservableElement } from '@canvas-panel/core';
