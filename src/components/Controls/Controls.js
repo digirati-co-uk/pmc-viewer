@@ -16,19 +16,21 @@ class Controls extends Component {
       <nav className={bem.modifiers({ active: true })}>
         <button
           onClick={onZoomIn}
-          className={`${bem
-            .element('control')
-            .modifier('zoom-in')} material-icons`}
+          className={`${bem.element('control').modifier('zoom-in')}`}
         >
-          add
+          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#FEFEFE" fill="none" fillRule="evenodd">
+              <path d="M6 0v12M0 6h12" />
+            </g>
+          </svg>
         </button>
         <button
           onClick={onZoomOut}
-          className={`${bem
-            .element('control')
-            .modifier('zoom-out')} material-icons`}
+          className={`${bem.element('control').modifier('zoom-out')}`}
         >
-          remove
+          <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 6h12" stroke="#FFF" fill="none" fillRule="evenodd" />
+          </svg>
         </button>
         {fullscreenEnabled ? (
           <button

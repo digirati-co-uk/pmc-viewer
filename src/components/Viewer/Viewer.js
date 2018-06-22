@@ -93,7 +93,7 @@ class Viewer extends Component {
                 setRef={this.setViewport}
                 {...props}
               >
-                <SingleTileSource viewportController={true}>
+                <SingleTileSource key={currentCanvas} viewportController={true}>
                   <OpenSeadragonViewport viewportController={true}>
                     <OpenSeadragonViewer
                       useMaxDimensions={true}

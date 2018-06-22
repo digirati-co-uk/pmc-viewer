@@ -3,6 +3,7 @@
   margin: 4px 10px;
   opacity: 0;
   pointer-events: none;
+  display: flex;
 
   &--active {
     pointer-events: initial;
@@ -15,12 +16,12 @@
     height: 36px;
     width: 36px;
     font-size: 14px;
-    padding: 0;
-    margin-left: 4px;
     border-radius: 0;
     transition: background 0.5s;
+    //margin: auto auto auto 4px;
     color: rgba(255, 255, 255, 0.6);
     text-align: center;
+    padding: 7px;
 
     @media (min-width: 320px) and (max-width: 480px) {
       width: 30px;
@@ -33,6 +34,11 @@
     }
     &:active {
       background: #111;
+    }
+
+    svg {
+      display: inline-block;
+      margin: auto;
     }
   }
 }
