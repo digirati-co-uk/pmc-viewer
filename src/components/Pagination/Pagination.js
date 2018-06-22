@@ -15,17 +15,29 @@ class Pagination extends Component {
       <nav className={bem}>
         <button
           onClick={() => dispatch(manifestPrevCanvas())}
-          className={`${bem
-            .element('button')
-            .modifier('previous')} material-icons`}
+          className={bem.element('button').modifier('previous')}
         >
-          arrow_back
+          <svg width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.5 10l-5-5.001L6.499 0"
+              stroke="#FFF"
+              fill="none"
+              fillRule="evenodd"
+            />
+          </svg>
         </button>
         <button
           onClick={() => dispatch(manifestNextCanvas())}
-          className={`${bem.element('button').modifier('next')} material-icons`}
+          className={bem.element('button').modifier('next')}
         >
-          arrow_forward
+          <svg width="8" height="10" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M1.5 0l5 5.001L1.503 10"
+              stroke="#FFF"
+              fill="none"
+              fillRule="evenodd"
+            />
+          </svg>
         </button>
       </nav>
     );
