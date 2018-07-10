@@ -9,4 +9,4 @@ hero:
        data-manifest="https://mattmcgrattan.github.io/pmc-fixture.json"
        style="width: 500px;height: 700px"></div>
 
-Build using [Canvas Panel](https://github.com/digirati-co-uk/canvas-panel) this viewer was made for the [Paul Mellon Centre](http://www.paul-mellon-centre.ac.uk).
+Built using [Canvas Panel](https://github.com/digirati-co-uk/canvas-panel) this viewer was made for the [Paul Mellon Centre](http://www.paul-mellon-centre.ac.uk).
