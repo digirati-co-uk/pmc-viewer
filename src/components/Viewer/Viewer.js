@@ -14,6 +14,7 @@ import {
   manifestNextCanvas,
   manifestPrevCanvas,
 } from '@canvas-panel/redux/es/spaces/manifest';
+import { isExternalLinkAnnotation } from '../../utils';
 import './Viewer.scss';
 
 class Viewer extends Component {
@@ -111,7 +112,12 @@ class Viewer extends Component {
                     annotations={search.annotations || []}
                     ratio={0.1}
                     growthStyle="fixed"
-                    bemModifiers={() => ({ search: true })}
+                    bemModifiers={annotation => ({
+                      search: true,
+                      external: isExternalLinkAnnotation(
+                        annotation.__jsonld.resource
+                      ),
+                    })}
                     onClickAnnotation={annotation =>
                       onClickAnnotation(annotation.__jsonld.resource)
                     }
@@ -124,6 +130,9 @@ class Viewer extends Component {
                     bemModifiers={annotation => ({
                       selected:
                         annotation.id && annotation.id === currentAnnotation,
+                      external: isExternalLinkAnnotation(
+                        annotation.__jsonld.resource
+                      ),
                     })}
                     onClickAnnotation={annotation =>
                       onClickAnnotation(annotation.__jsonld.resource)

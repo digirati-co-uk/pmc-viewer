@@ -134,4 +134,10 @@
     background: rgba(#ff7855, 0.3);
     outline: 1px solid #ff7855;
   }
+
+  &--external {
+    cursor: initial;
+    background: rgba(#fff, 0.3);
+    outline: 1px solid skyblue;
+  }
 }
