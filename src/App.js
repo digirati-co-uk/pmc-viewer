@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Theme from './components/Theme/Theme';
 import { search } from '@canvas-panel/search';
 import { waitAndSearch } from './createStore';
+import { isExternalLinkAnnotation } from './utils';
 
 class App extends Component {
   viewport = null;
@@ -42,7 +43,15 @@ class App extends Component {
   }
 
   handleClickAnnotation = anno => {
-    window.location = anno['@id'];
+    const url = anno['@id'];
+    if (isExternalLinkAnnotation(anno)) {
+      Object.assign(document.createElement('a'), {
+        target: '_blank',
+        href: anno['@id'],
+      }).click();
+    } else {
+      window.location = anno['@id'];
+    }
   };
 
   configureTheme() {
