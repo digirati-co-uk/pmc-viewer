@@ -2,9 +2,9 @@
 name: About index page
 title: About PMC Viewer
 hero:
-  image: https://dlcs.info/assets/img/home-hero.jpg
   headline: PMC Viewer
-  text: Something something
+  image: 'https://dlcs.info/assets/img/home-hero.jpg'
+  text: Something something something else
 ---
 
 # Welcome
