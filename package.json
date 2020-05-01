@@ -20,9 +20,10 @@
     "clean": "nwb clean-app src dist/assets",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server",
-    "prepublish": "npm run build-module",
+    "prepublish": "yarn run snyk-protect && npm run build-module",
     "test": "echo \"No tests yet\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "@canvas-panel/core": "^0.0.9",
@@ -37,7 +38,8 @@
     "material-components-web": "^0.30.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-redux": "^5.0.6"
+    "react-redux": "^5.0.6",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@fesk/live-server-plugin": "0.0.1",
@@ -108,5 +110,6 @@
   },
   "author": "Digirati",
   "license": "MIT",
-  "repository": "https://github.com/digirati-co-uk/pmc-viewer"
+  "repository": "https://github.com/digirati-co-uk/pmc-viewer",
+  "snyk": true
 }
